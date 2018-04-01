@@ -68,7 +68,7 @@ public class MemberUI {
 				String name = in.nextLine();
 				System.out.println("Enter id:");
 				String id = in.nextLine();			
-				Member aMemebr = new Member(name,id);
+				Member aMemebr = new Member(name,Integer.parseInt(id));
 				ctrl.addMember(aMemebr);		
 				
 			}
@@ -104,10 +104,6 @@ public class MemberUI {
 
 				allE.stream().
 						filter(p -> p.getIdMember() == idInt).forEach(System.out::println);
-
-
-				//for (int j=0;j<allE.size();j++)
-				//	System.out.println(allE.get(j).toString());
 			}
 
 			printMenu();
