@@ -28,7 +28,12 @@ public class MemberRepository {
 
 	}
 
-	 public void addMember(Member m){
+    public MemberRepository(List<Member> members, List<Entry> entries) {
+        this.members = members;
+        this.entries = entries;
+    }
+
+    public void addMember(Member m){
 		 members.add(m);
 		 writeToFile(m);
 	 }
@@ -142,9 +147,19 @@ public class MemberRepository {
 
 
 	 public void addEntry(Entry e){
-		 entries.add(e);
-		 writeToFile(e);
-	 }
+            for( Member member : members){ // 1
+                if(member.getId() == e.getIdMember()) //2
+                {
+                    entries.add(e);  //3
+                    writeToFile(e); //3
+                    break;
+                }
+            }
+
+
+     } //4
+
+
 	 public List<Entry> getAllEntries(){
 		 
 		 return entries;
