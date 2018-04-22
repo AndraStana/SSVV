@@ -44,4 +44,17 @@ public class AddEntryRepositoryTest {
         assertTrue(repo.getAllEntries().size() == 1);
 
     }
+
+    @Test
+    public void testAddEntry3() throws IOException {
+
+        List<Member> members=  new ArrayList<>();
+        members.add(new Member("name",11));
+        members.add(new Member("name",12));
+
+        MemberRepository repo = new MemberRepository(members , new ArrayList<Entry>());
+        repo.addEntry(new Entry("cost" , 100, 10));
+        assertTrue(repo.getAllEntries().size() == 0);
+
+    }
 }
