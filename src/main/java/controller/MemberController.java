@@ -14,6 +14,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class MemberController {
 	
@@ -36,6 +37,10 @@ public class MemberController {
         }
     }
 
+    public List<Entry> getAllEntries(){
+        return mr.getAllEntries();
+    }
+
     public void addEntry(Entry oneEntry) {
         mr.addEntry(oneEntry);    	
     }
@@ -47,4 +52,19 @@ public class MemberController {
         allE = this.mr.getAllEntries();
         return allE;
     }
+
+    public List<Entry> getAllEntriesForId(int id){
+        List<Entry> allE = this.mr.getAllEntries();
+
+        List<Entry> allErr = allE.stream().
+                filter(p -> p.getIdMember() == id).collect(Collectors.toList());
+
+
+        return allE.stream().
+						filter(p -> p.getIdMember() == id).collect(Collectors.toList());
+    }
+
+
+
+
 } 
