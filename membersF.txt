@@ -84,3 +84,11 @@ a;1
 Florin;1
 Florin;2147483647
 Florin;-2147483648
+name;10
+name;10
+name;10
+a;1
+name;10
+name;10
+a;1
+name;10
